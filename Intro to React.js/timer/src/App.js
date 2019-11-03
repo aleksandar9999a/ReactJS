@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import ReactDOM from 'react-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function currTime() {
+  return (<h1>{new Date().toLocaleTimeString()}</h1>);
+}
+
+function currDate() {
+  let date = new Date();
+  return (<p>Day:{date.getDate()} Month:{date.getMonth()} Year:{date.getFullYear()}</p>);
+}
+
+function currLocation() {
+  return (<p>Varna, Bulgaria</p>);
+}
+
+function tick() {
+  const element = (
+    <div className='App-header'>
+      {currTime()}
+      {currDate()}
+      {currLocation()}
     </div>
+  );
+  ReactDOM.render(
+    element,
+    document.getElementById('root')
   );
 }
 
-export default App;
+setInterval(tick, 1000);
