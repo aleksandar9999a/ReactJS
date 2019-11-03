@@ -19,12 +19,12 @@ export default class Slider extends Component {
     }
 
     render = () => (
-        <section id='slider'>
-            <img className='button' src='/left.png' title='previous' alt='nav' />
-            <div className='image-container'>
-                <img src={this.state.url} alt='episode' />
+        <div>
+            <div className='warper'>
+                <img className='slider-elem slider-button case-left' src='/left.png' title='previous' alt='nav' onClick={() => this.fetchEpisode(this.state.id - 1)} />
+                <img className='sliderImg slider-elem' src={this.state.url} alt='episode' />
+                <img className='slider-elem slider-button case-right' src='/right.png' title='next' alt='nav' onClick={() => this.fetchEpisode(this.state.id + 1)} />
             </div>
-            <img className='button' src='/right.png' title='previous' alt='nav' />
-        </section>
+        </div>
     )
 }
