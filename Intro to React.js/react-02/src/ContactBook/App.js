@@ -1,46 +1,46 @@
 import React from 'react';
 import './app.css';
-import './index.css';
+import data from './contacts.json';
+
+function createContact(contact) {
+  return (
+    <div className="contact" data-id="id">
+      <span className="avatar small">&#9787;</span>
+      <span className="title">{contact.firstName} {contact.lastName}</span>
+    </div>
+  )
+}
+
+function renderContacts(contacts){
+  return contacts.map(createContact);
+}
 
 function App() {
   return (
-    <div class="container">
+    <div className="container">
       <header>&#9993; Contact Book</header>
       <div id="book">
         <div id="list">
           <h1>Contacts</h1>
-          <div class="content">
-            <div class="contact" data-id="id">
-              <span class="avatar small">&#9787;</span>
-              <span class="title">Ivan Ivanov</span>
-            </div>
-
-            <div class="contact" data-id="id">
-              <span class="avatar small">&#9787;</span>
-              <span class="title">Jordan Kirov</span>
-            </div>
-
-            <div class="contact" data-id="id">
-              <span class="avatar small">&#9787;</span>
-              <span class="title">Maria Petrova</span>
-            </div>
+          <div className="content">
+            {renderContacts(data)}
           </div>
         </div>
         <div id="details">
           <h1>Details</h1>
-          <div class="content">
-            <div class="info">
-              <div class="col">
-                <span class="avatar">&#9787;</span>
+          <div className="content">
+            <div className="info">
+              <div className="col">
+                <span className="avatar">&#9787;</span>
               </div>
-              <div class="col">
-                <span class="name">Ivan</span>
-                <span class="name">Ivanov</span>
+              <div className="col">
+                <span className="name">Ivan</span>
+                <span className="name">Ivanov</span>
               </div>
             </div>
-            <div class="info">
-              <span class="info-line">&phone; 0887 123 456</span>
-              <span class="info-line">&#9993; i.ivanov@gmail.com</span>
+            <div className="info">
+              <span className="info-line">&phone; 0887 123 456</span>
+              <span className="info-line">&#9993; i.ivanov@gmail.com</span>
             </div>
           </div>
         </div>
