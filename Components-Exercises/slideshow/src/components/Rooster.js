@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-export default class Rooster extends Component{
-    render = () => (
-        <section id='roster'>
-            
-        </section>
-    )
+export default class Rooster extends Component {
+    render = () => {
+        const images = this.props.images.map(x => (<img className='rosterImg' src={x.url} alt='' key={x.id}/>))
+        return (
+            <div className='roster'>
+                {images}
+            </div>
+        )
+    }
 }

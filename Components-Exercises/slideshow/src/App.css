@@ -23,3 +23,13 @@
     right: 0;
   }
   
+.roster{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rosterImg{
+  width: auto;
+  height: 300px;
+}
