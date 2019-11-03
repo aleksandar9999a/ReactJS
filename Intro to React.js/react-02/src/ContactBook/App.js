@@ -4,7 +4,7 @@ import data from './contacts.json';
 
 function createContact(contact, i) {
   return (
-    <div className="contact" data-id="id" key={i}>
+    <div className="contact" data-id="id" key={contact.phone}>
       <span className="avatar small">&#9787;</span>
       <span className="title">{contact.firstName} {contact.lastName}</span>
     </div>
