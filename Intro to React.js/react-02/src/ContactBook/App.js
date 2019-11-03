@@ -2,9 +2,9 @@ import React from 'react';
 import './app.css';
 import data from './contacts.json';
 
-function createContact(contact) {
+function createContact(contact, i) {
   return (
-    <div className="contact" data-id="id">
+    <div className="contact" data-id="id" key={i}>
       <span className="avatar small">&#9787;</span>
       <span className="title">{contact.firstName} {contact.lastName}</span>
     </div>
