@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
-import './newAppStyle.css';
-import './newIndexStyle.css';
+import './app.css';
+import './index.css';
 
 function App() {
   return (
