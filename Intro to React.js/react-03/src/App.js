@@ -1,29 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Buttons from './Components/Buttons';
 import './App.css';
 
-let counter = 0;
-
-const events = {
-  handleEvent: function (e) {
-    if (e.target.tagName === 'BUTTON') {
-      counter++;
-      e.target.innerHTML = counter;
-    }
+class App extends Component{
+  render(){
+    return (
+      <div className='App-header'>
+        <Buttons text='Some text'/>
+      </div>
+    )
   }
 }
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <button>{counter}</button>
-      </header>
-    </div>
-  );
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.addEventListener('click', events)
-})
 
 export default App;
