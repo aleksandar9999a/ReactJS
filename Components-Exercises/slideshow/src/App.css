@@ -27,9 +27,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 }
 
 .rosterImg{
   width: auto;
   height: 300px;
+}
+
+.bio{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bioImage {
+  width: auto;
+  height: 200px;
+  padding: 20px;
 }
