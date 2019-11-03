@@ -1,22 +1,66 @@
-.App {
-  text-align: center;
+body {
+  background-color: #222;
+  color:white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+p {
+    line-height: 1.5;
 }
 
-.App-logo {
-  height: 40vmin;
+h1 {
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    width: 800px;
+    padding: 10px;
+    margin: auto;
 }
 
-.App-link {
-  color: #09d3ac;
+.container section {
+    margin: 10px 0;
+    position: relative;
+    padding: 10px;
+    background: black;
+    border-radius: 10px;
+    height: 240px;
+    display: flex;
 }
+
+#slider > .image-container {
+    flex-grow: 10;
+    height:230px;
+    text-align: center;
+}
+
+img {
+    height: 100%;
+}
+
+.roster-image-container {
+    flex-grow: 1;
+    text-align: center;
+    padding: 1px;
+}
+
+.button {
+    flex-grow: 1;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+#bio .image {
+    flex-grow: 1;
+}
+
+#bio .info {
+    flex-grow: 2;
+    padding: 10px 30px;
+}
+#bio .info p:last-child {
+    text-indent: 20px;
+}
+
+

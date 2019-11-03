@@ -12,13 +12,17 @@ export default class Slider extends Component {
         }
     }
 
-    fetchEpisode = id => fetcher.get(EPISODE_ENDPOINT + id, data => this.setState(data))
+    fetchEpisode = id => fetcher.get(EPISODE_ENDPOINT + id, data => this.setState(data));
+
+    componentDidMount = () => {
+        this.fetchEpisode(0);
+    }
 
     render = () => (
         <section id='slider'>
             <img className='button' src='/left.png' title='previous' alt='nav' />
             <div className='image-container'>
-                <img src='' alt='episode' />
+                <img src={this.state.url} alt='episode' />
             </div>
             <img className='button' src='/right.png' title='previous' alt='nav' />
         </section>
