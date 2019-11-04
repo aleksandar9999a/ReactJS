@@ -37,7 +37,7 @@ export default class ItemsForm extends Component {
                     <br />
                     <input type='submit' />
                 </form>
-                <div name='error'>{this.state.err}</div>
+                <div>{this.state.err}</div>
             </div>
         )
     }
