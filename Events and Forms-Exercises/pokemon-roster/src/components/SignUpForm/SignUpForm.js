@@ -25,37 +25,49 @@ export default class SignUpForm extends Component {
         })
     }
 
-    sentData(e){
+    sentData(e) {
         e.preventDefault();
-        console.log(this.state);
-        if (this.state.email === '') {
-            this.setState({error: 'Type Email!'})
-        }
-        else if(this.state.email !== this.state.confirmEmail){
-            this.setState({error: 'Second Email is not the same!'})
-        }
-        else if(this.state.username === ''){
-            this.setState({error: 'Type Username!'})
-        }
-        else if(this.state.password === ''){
-            this.setState({error: 'Type password!'})
-        }
-        else if(this.state.password !== this.state.confirmPassword){
-            this.setState({error: 'Second password is not the same!'})
-        }
-        else if(this.state.terms === false){
-            this.setState({error: 'Agree with Terms!'})
-        }else{
-            this.setState({error: ''})
+        if (this.isValidData()) {
+            
         }
     }
 
-    onClickCheckBox(e){
+    isValidData() {
+        if (this.state.email === '') {
+            this.setState({ error: 'Type Email!' });
+            return false;
+        }
+        else if (this.state.email !== this.state.confirmEmail) {
+            this.setState({ error: 'Second Email is not the same!' });
+            return false;
+        }
+        else if (this.state.username === '') {
+            this.setState({ error: 'Type Username!' });
+            return false;
+        }
+        else if (this.state.password === '') {
+            this.setState({ error: 'Type password!' });
+            return false;
+        }
+        else if (this.state.password !== this.state.confirmPassword) {
+            this.setState({ error: 'Second password is not the same!' });
+            return false;
+        }
+        else if (this.state.terms === false) {
+            this.setState({ error: 'Agree with Terms!' });
+            return false;
+        }
+
+        this.setState({ error: '' });
+        return true;
+    }
+
+    onClickCheckBox(e) {
         if (e.target.checked === true) {
             this.setState({
                 terms: true
             })
-        }else{
+        } else {
             this.setState({
                 terms: false
             })
@@ -72,7 +84,7 @@ export default class SignUpForm extends Component {
                     <GenerateItems type='text' name='username' titleOn='Username:' onChange={this.onInputChange} />
                     <GenerateItems type='password' name='password' titleOn='Password:' onChange={this.onInputChange} />
                     <GenerateItems type='password' name='confirmPassword' titleOn='Confirm Password:' onChange={this.onInputChange} />
-                    <input type='checkbox' name='terms' onChange={this.onClickCheckBox}/> I agree with the terms
+                    <input type='checkbox' name='terms' onChange={this.onClickCheckBox} /> I agree with the terms
                     <br />
                     <button type='submit' >Sign Up</button>
                 </form>
