@@ -11,12 +11,13 @@ export default class SignUpForm extends Component {
             password: '',
             confirmPassword: '',
             terms: false,
-            error: ''
+            message: ''
         }
 
         this.onInputChange = this.onInputChange.bind(this);
         this.sentData = this.sentData.bind(this);
         this.onClickCheckBox = this.onClickCheckBox.bind(this);
+        this.afterRegistered = this.afterRegistered.bind(this);
     }
 
     onInputChange(e) {
@@ -27,38 +28,57 @@ export default class SignUpForm extends Component {
 
     sentData(e) {
         e.preventDefault();
+        let email = this.state.email;
+        let password = this.state.password;
+        let name = this.state.username;
+
         if (this.isValidData()) {
-            
+            fetch(
+                'http://localhost:5000/auth/signup',
+                {
+                    method: 'POST',
+                    body: JSON.stringify({email, password, name}),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+            )
+            .then(data => data.json())
+            .then(this.afterRegistered)
         }
+    }
+
+    afterRegistered(res){
+        this.setState({message: res.message})
     }
 
     isValidData() {
         if (this.state.email === '') {
-            this.setState({ error: 'Type Email!' });
+            this.setState({ message: 'Type Email!' });
             return false;
         }
         else if (this.state.email !== this.state.confirmEmail) {
-            this.setState({ error: 'Second Email is not the same!' });
+            this.setState({ message: 'Second Email is not the same!' });
             return false;
         }
         else if (this.state.username === '') {
-            this.setState({ error: 'Type Username!' });
+            this.setState({ message: 'Type Username!' });
             return false;
         }
         else if (this.state.password === '') {
-            this.setState({ error: 'Type password!' });
+            this.setState({ message: 'Type password!' });
             return false;
         }
         else if (this.state.password !== this.state.confirmPassword) {
-            this.setState({ error: 'Second password is not the same!' });
+            this.setState({ message: 'Second password is not the same!' });
             return false;
         }
         else if (this.state.terms === false) {
-            this.setState({ error: 'Agree with Terms!' });
+            this.setState({ message: 'Agree with Terms!' });
             return false;
         }
 
-        this.setState({ error: '' });
+        this.setState({ message: '' });
         return true;
     }
 
@@ -88,7 +108,7 @@ export default class SignUpForm extends Component {
                     <br />
                     <button type='submit' >Sign Up</button>
                 </form>
-                <div>{this.state.error}</div>
+                <div>{this.state.message}</div>
             </div>
         )
     }
