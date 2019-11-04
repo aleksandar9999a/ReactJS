@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
 export default class ButtonWithClick extends Component {
-    onButtonClick () {
-        alert('Event!')
+    onButtonClick = () => {
+        console.log(this.props.name)
     }
 
     render() {

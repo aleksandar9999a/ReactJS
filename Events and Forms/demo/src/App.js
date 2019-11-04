@@ -1,11 +1,13 @@
 import React from 'react';
-import ButtonWithClick from './components/ButtonWithClick'
+import ButtonWithClick from './components/ButtonWithClick';
+import RegisterForm from './components/RegisterForm';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <ButtonWithClick />
+      <RegisterForm />
+      <ButtonWithClick name='Alex'/>
     </div>
   );
 }
