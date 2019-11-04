@@ -6,7 +6,7 @@ export default class GenerateItems extends Component{
             <div>
                 {this.props.titleOn}
                 <br />
-                <input type={this.props.type} name='email' />
+                <input type={this.props.type} name={this.props.name} onChange={this.props.onChange}/>
             </div>
         )
     }
