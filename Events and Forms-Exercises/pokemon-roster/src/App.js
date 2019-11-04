@@ -16,7 +16,7 @@ export default class App extends Component {
     } else {
       return (
         <div className='row'>
-          <LogUp />
+          <LogUp loginData=''/>
           <SignUp />
         </div>
       )
