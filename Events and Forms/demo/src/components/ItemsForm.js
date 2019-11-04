@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-export default class ItemsForm extends Component{
-    constructor(props){
+export default class ItemsForm extends Component {
+    constructor(props) {
         super(props);
         this.state = {
-            itemName: ''
+            itemName: '',
+            err: ''
         }
 
         this.onInputChange = this.onInputChange.bind(this);
@@ -12,22 +13,32 @@ export default class ItemsForm extends Component{
     }
 
     onInputChange(e) {
-        this.setState({itemName: e.target.value});
+        this.setState({ itemName: e.target.value });
     }
 
-    onItemSaved(e){
+    onItemSaved(e) {
         e.preventDefault();
-        this.props.addItem(this.state.itemName);
+        if (this.state.itemName !== '') {
+            this.setState({err: ''});
+            this.props.addItem(this.state.itemName);
+        }else{
+            this.setState({err: 'Type something!'});
+
+            return;
+        }
     }
-    
-    render(){
+
+    render() {
         return (
-            <form onSubmit={this.onItemSaved}>
-                Item Name:
+            <div>
+                <form onSubmit={this.onItemSaved}>
+                    Item Name:
                 <input type='text' name='name' onChange={this.onInputChange} value={this.state.itemName} />
-                <br />
-                <input type='submit' />
-            </form>
+                    <br />
+                    <input type='submit' />
+                </form>
+                <div name='error'>{this.state.err}</div>
+            </div>
         )
     }
 }
