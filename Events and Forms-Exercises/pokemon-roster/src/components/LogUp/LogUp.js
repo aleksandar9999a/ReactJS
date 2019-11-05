@@ -19,8 +19,7 @@ export default class LogUp extends Component {
         })
     }
 
-    login(e){
-        e.preventDefault();
+    login(e) {
         if (this.state.email !== '' && this.state.password !== '') {
             let email = this.state.email;
             let password = this.state.password;
@@ -28,17 +27,17 @@ export default class LogUp extends Component {
                 'http://localhost:5000/auth/login',
                 {
                     method: 'POST',
-                    body: JSON.stringify({email, password}),
+                    body: JSON.stringify({ email, password }),
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 }
             )
-            .then(data => data.json())
-            .then(this.props.loginData);
+                .then(data => data.json())
+                .then(this.props.loginData);
+        }else{
+            e.preventDefault();
         }
-        
-        
     }
 
     render() {

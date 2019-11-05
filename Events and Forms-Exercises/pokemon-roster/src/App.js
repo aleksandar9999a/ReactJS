@@ -13,14 +13,27 @@ export default class App extends Component {
   }
 
   receiveLoginData(data) {
-    this.setState({ data })
-    console.log(this.state);
-    
+    this.setState({ data });
+    localStorage.setItem('userData', JSON.stringify(data));
   }
 
   generateLoginForm() {
-    if (this.state.data.success) {
-      return <PokemonForm />
+    let userData = JSON.parse(localStorage.getItem('userData'));
+    
+    if (userData !== null) {
+      if (userData.success) {
+        return <PokemonForm />
+      }
+
+      return (
+        <div>
+          <div className='row'>
+            <LogUp loginData={this.receiveLoginData} />
+            <SignUp />
+          </div>
+          <div>{this.state.data.message}</div>
+        </div>
+      )
     } else {
       return (
         <div>
@@ -33,7 +46,6 @@ export default class App extends Component {
       )
     }
   }
-
 
   render() {
     return (
