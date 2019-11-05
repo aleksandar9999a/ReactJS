@@ -35,8 +35,7 @@ export default class LogUp extends Component {
                 }
             )
             .then(data => data.json())
-            .then(res => this.setState({loginData: res}))
-            console.log(this.state);
+            .then(this.props.loginData);
         }
         
         

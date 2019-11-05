@@ -8,6 +8,13 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = { isLog: false }
+    this.generateLoginForm = this.generateLoginForm.bind(this);
+    this.lorecieveLoginDataging = this.recieveLoginData.bind(this);
+  }
+
+  receiveLoginData(data){
+    console.log(data);
+    
   }
 
   generateLoginForm() {
@@ -16,7 +23,7 @@ export default class App extends Component {
     } else {
       return (
         <div className='row'>
-          <LogUp loginData=''/>
+          <LogUp loginData={this.receiveLoginData}/>
           <SignUp />
         </div>
       )
