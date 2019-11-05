@@ -1,9 +1,7 @@
 import React from 'react';
 
 const AddCatFood = () => (
-    <div>
-        Add cat food form
-    </div>
+    <h1>Add cat food form</h1>
 )
 
 export default AddCatFood;
