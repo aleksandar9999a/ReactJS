@@ -16,3 +16,7 @@ code {
 div {
   margin: 20px;
 }
+
+.menu a{
+  padding: 5px;
+}
