@@ -7,24 +7,28 @@ import './App.css';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLog: false }
+    this.state = { data: {} }
     this.generateLoginForm = this.generateLoginForm.bind(this);
-    this.lorecieveLoginDataging = this.recieveLoginData.bind(this);
+    this.receiveLoginData = this.receiveLoginData.bind(this);
   }
 
-  receiveLoginData(data){
-    console.log(data);
+  receiveLoginData(data) {
+    this.setState({ data })
+    console.log(this.state);
     
   }
 
   generateLoginForm() {
-    if (this.state.isLog) {
+    if (this.state.data.success) {
       return <PokemonForm />
     } else {
       return (
-        <div className='row'>
-          <LogUp loginData={this.receiveLoginData}/>
-          <SignUp />
+        <div>
+          <div className='row'>
+            <LogUp loginData={this.receiveLoginData} />
+            <SignUp />
+          </div>
+          <div>{this.state.data.message}</div>
         </div>
       )
     }
