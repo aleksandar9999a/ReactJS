@@ -20,5 +20,19 @@ export default class LoginForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
+        requester
+            .post('user', 'login', 'basic', this.state)
+            .then(console.log)
     }
+
+    render = () => (
+        <form id="loginForm" onSubmit={this.handleSubmit}>
+            <h2>Sign In</h2>
+            <label>Username:</label>
+            <input name="username" onChange={this.handleChange} type="text" />
+            <label>Password:</label>
+            <input name="password" onChange={this.handleChange} type="password" />
+            <input id="btnLogin" type="submit" value="Sign In" />
+        </form>
+    )
 }
