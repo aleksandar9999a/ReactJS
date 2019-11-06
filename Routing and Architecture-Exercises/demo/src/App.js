@@ -1,13 +1,16 @@
 import React from 'react';
-import './App.css';
-import LoginForm from './components/user/LoginForm';
+import { Route } from 'react-router-dom';
 import Header from './components/common/Header';
+import Home from './components/common/Home';
+
+import './App.css';
+import './style/site.css';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <LoginForm />
+      <Route path='/' exact component={Home} />
     </div>
   );
 }
