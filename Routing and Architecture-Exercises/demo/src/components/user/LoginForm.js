@@ -19,12 +19,11 @@ export default class LoginForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-
-        console.log(this.state);
-        
         requester
             .post('user', 'login', 'basic', this.state)
-            .then(console.log)
+            .then(res => {
+                sessionStorage.setItem('authtoken', res._kmd.authtoken)
+            })
     }
 
     render = () => (
