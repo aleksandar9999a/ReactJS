@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import requester from '../../infrastructure/requester';
+import observer from '../../infrastructure/observer';
 
 export default class RegisterForm extends Component {
     constructor(props) {
@@ -21,7 +22,10 @@ export default class RegisterForm extends Component {
         e.preventDefault();
         requester
             .post('user', '', 'basic', this.state)
-            .then(console.log)
+            .then(res => {
+                observer.trigger(observer.events.loginUser, res.username)
+                sessionStorage.setItem('authtoken', res._kmd.authtoken)
+            })
     }
 
     render = () => (
