@@ -8,7 +8,7 @@ import './style/site.css';
 
 function App() {
   return (
-    <div className="App">
+    <div id="App">
       <Header />
       <Route path='/' exact component={Home} />
     </div>

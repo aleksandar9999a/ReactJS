@@ -18,7 +18,7 @@ export default class Header extends Component {
         const loggedSection = (
             <div id="profile">
                 <span id="username">Hello, {this.state.username}!</span>|
-                <a href="#" id="linkMenuLogout">logout</a>
+                <a href="/" id="linkMenuLogout">logout</a>
             </div>);
 
         return (
