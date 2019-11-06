@@ -20,12 +20,15 @@ export default class LoginForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+
         requester
             .post('user', 'login', 'basic', this.state)
             .then(res => {
                 observer.trigger(observer.events.loginUser, res.username)
+                observer.trigger(observer.events.notification, { type: 'success', message: 'Login is successful!' })
                 sessionStorage.setItem('authtoken', res._kmd.authtoken)
             })
+            .catch(res => observer.trigger(observer.events.notification, { type: 'error', message: 'Incorrect username or password!' }))
     }
 
     render = () => (
