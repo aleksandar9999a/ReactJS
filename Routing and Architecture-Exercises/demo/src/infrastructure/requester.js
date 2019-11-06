@@ -1,6 +1,8 @@
+import $ from 'jquery';
+
 const kinveyBaseUrl = "https://baas.kinvey.com/";
-const kinveyAppKey = "kid_B1ZC9akiH";
-const kinveyAppSecret = "760edba4027a46188e990ceb6aa4a006";
+const kinveyAppKey = "kid_BkHl3ZgjS";
+const kinveyAppSecret = "9220b321cae64047945713fde71b6e57";
 
 // Creates the authentication header
 function makeAuth(type) {
@@ -11,7 +13,7 @@ function makeAuth(type) {
 
 // Creates request object to kinvey
 function makeRequest(method, module, endpoint, auth) {
-    return req = {
+    return {
         method,
         url: kinveyBaseUrl + module + '/' + kinveyAppKey + '/' + endpoint,
         headers: {
