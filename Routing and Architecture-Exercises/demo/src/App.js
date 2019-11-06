@@ -6,6 +6,7 @@ import Home from './components/common/Home';
 import './App.css';
 import './style/site.css';
 import Notification from './components/common/Notification';
+import Catalog from './components/catalog/Catalog';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Notification />
       <Route path='/' exact component={Home} />
+      <Route path='/catalog' exact component={Catalog} />
     </div>
   );
 }

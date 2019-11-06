@@ -6,15 +6,17 @@ import About from './About';
 export default class Home extends Component {
     render = () => {
         return (
-            <section id="viewSignIn">
-                <div className="welcome">
-                    <div className="signup">
-                        <LoginForm />
-                        <RegisterForm />
+            <main className="content">
+                <section id="viewSignIn">
+                    <div className="welcome">
+                        <div className="signup">
+                            <LoginForm />
+                            <RegisterForm />
+                        </div>
+                        <About />
                     </div>
-                    <About />
-                </div>
-            </section>
+                </section>
+            </main >
         )
     }
 }

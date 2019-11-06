@@ -7,6 +7,9 @@ export default class Catalog extends Component{
         return (
             <div>
                 <Navigation />
+                <section id="viewCatalog">
+
+                </section>
             </div>
         )
     }
