@@ -12,9 +12,9 @@ export default class Carousel extends Component {
     }
 
     fetchImages = () => {
-        requester
-            .get('appdata', 'Carousel', 'kinvey')
-            .then(console.log)
+        // requester
+        //     .get('appdata', 'Carousel', 'kinvey')
+        //     .then(console.log)
     }
 
     componentDidMount = () => {
