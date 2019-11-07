@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Navigation from '../common/Navigation';
+import PostList from '../post/PostList';
 
-export default class Catalog extends Component{
+export default class Catalog extends Component {
 
     render = () => {
         return (
             <div>
                 <Navigation />
-                <section id="viewCatalog">
-
-                </section>
+                <PostList />
             </div>
         )
     }

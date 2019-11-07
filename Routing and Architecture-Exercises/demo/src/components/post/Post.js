@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './../../style/post.css'
 
 function pluralize(value) {
     if (value !== 1) return 's';
@@ -9,7 +10,7 @@ function pluralize(value) {
 export default class Post extends Component {
     creationInfo = () => {
         let dateIsoFormat = this.props._kmd.ect;
-        let diff = new Date - (new Date(dateIsoFormat));
+        let diff = new Date() - (new Date(dateIsoFormat));
         diff = Math.floor(diff / 60000);
         if (diff < 1) return 'less than a minute';
         if (diff < 60) return diff + ' minute' + pluralize(diff);
@@ -24,33 +25,33 @@ export default class Post extends Component {
     }
 
     render = () => (
-        <article class="post">
-            <div class="col rank">
+        <article className="post">
+            <div className="col rank">
                 <span>{this.props.rank}</span>
             </div>
-            <div class="col thumbnail">
+            <div className="col thumbnail">
                 <a href={this.props.url}>
-                    <img src={this.props.imageUrl} />
+                    <img src={this.props.imageUrl} alt='' />
                 </a>
             </div>
-            <div class="post-content">
-                <div class="title">
+            <div className="post-content">
+                <div className="title">
                     <a href={this.props.url}>{this.props.title}</a>
                 </div>
-                <div class="details">
-                    <div class="info">
+                <div className="details">
+                    <div className="info">
                         {this.creationInfo()}
                     </div>
-                    <div class="controls">
+                    <div className="controls">
                         <ul>
-                            <li class="action">
+                            <li className="action">
                                 <Link to="/">Details</Link>
                             </li>
-                            <li class="action">
-                                <Link to="/" class="editPost">Edit</Link>
+                            <li className="action">
+                                <Link to="/" className="editPost">Edit</Link>
                             </li>
-                            <li class="action">
-                                <Link to="/" class="deletePost">Delete</Link>
+                            <li className="action">
+                                <Link to="/" className="deletePost">Delete</Link>
                             </li>
                         </ul>
                     </div>
