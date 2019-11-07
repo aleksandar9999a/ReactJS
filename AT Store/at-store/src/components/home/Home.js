@@ -4,7 +4,7 @@ import Carousel from '../carousel/Carousel';
 export default class Home extends Component {
     render = () => (
         <div>
-            {/* <Carousel /> */}
+            <Carousel />
         </div>
     )
 }

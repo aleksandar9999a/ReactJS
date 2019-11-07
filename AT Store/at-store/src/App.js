@@ -1,13 +1,13 @@
 import React from 'react';
 import Navigation from './components/navigation/Navigation';
-import Container from './components/container/Container';
 import Footer from './components/footer/Footer';
+import MyRouters from './components/myRouters/MyRouters';
 
 function App() {
   return (
     <div className="App">
       <Navigation />
-      <Container />
+      <MyRouters />
       <Footer />
     </div>
   );
