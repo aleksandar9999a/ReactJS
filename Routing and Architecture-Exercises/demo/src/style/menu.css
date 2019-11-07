@@ -1,6 +1,7 @@
 #menu {
     display: inline-block;
     border: 1px solid black;
+    background: white;
     margin: 15px;
     width: 200px;
 }
@@ -16,14 +17,14 @@
     font-size: 1.25em;
     display: block;
     text-decoration: none;
+    background: rgba(174, 236, 174, 0.863);
     padding: 5px 10px;
-    margin: 10px;
 }
 
 .nav:hover {
-    background: #ddf9c0;
+    background: rgba(233, 241, 112, 0.911);
 }
 
-.nav.active {
+.nav:active {
     background: white;
 }

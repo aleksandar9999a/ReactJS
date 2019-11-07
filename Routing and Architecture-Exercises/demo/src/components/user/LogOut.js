@@ -9,5 +9,8 @@ export default class LogOut extends Component {
             .then(res => sessionStorage.removeItem('authtoken'))
     }
 
-    render = () => <Redirect to='/' />
+    render = () => {
+        this.logout();
+        return <Redirect to='/' />
+    }
 }

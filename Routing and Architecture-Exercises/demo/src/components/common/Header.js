@@ -25,7 +25,6 @@ export default class Header extends Component {
             <header>
                 <span className="logo">&#9731;</span><span className="header">SeenIt</span>
                 {this.state.username ? loggedSection : null}
-
             </header>
         )
     }
