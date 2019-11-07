@@ -7,7 +7,7 @@ const appSecret = '6b1b6d27ccc443ffb3d5471bf052f2bb';
 // Creates the authentication header
 function makeAuth(type) {
     return type === 'basic'
-        ? 'Basic ' + btoa(kinveyAppKey + ':' + kinveyAppSecret)
+        ? 'Basic ' + btoa(appKey + ':' + appSecret)
         : 'Kinvey ' + sessionStorage.getItem('authtoken');
 }
 
@@ -15,7 +15,7 @@ function makeAuth(type) {
 function makeRequest(method, module, endpoint, auth) {
     return {
         method,
-        url: kinveyBaseUrl + module + '/' + kinveyAppKey + '/' + endpoint,
+        url: BASE_URL + module + '/' + appKey + '/' + endpoint,
         headers: {
             'Authorization': makeAuth(auth)
         }
