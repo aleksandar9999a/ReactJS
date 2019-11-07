@@ -16,7 +16,7 @@ export default class PostList extends Component {
 
     render = () => (
         <section id="viewCatalog">
-            {this.state.posts.map(x => <Post key={x._id} {...x }/>)}
+            {this.state.posts.map((x, i) => <Post key={x._id} rank={i + 1} {...x }/>)}
         </section>
     )
 }
