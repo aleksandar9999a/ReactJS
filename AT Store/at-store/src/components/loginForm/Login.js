@@ -23,7 +23,7 @@ export default class Login extends Component {
             )
         } else {
             return (
-                <Button variant="success" type="submit">
+                <Button variant="success" type="submit" disabled>
                     Log In
                 </Button>
             )
@@ -35,8 +35,6 @@ export default class Login extends Component {
         let value = e.target.value
 
         this.setState({ [type]: value });
-        console.log(this.state);
-        
     }
 
     handleSubmit = (e) => {
