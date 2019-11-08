@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import requester from './../../tools/requester';
+import observer from './../../tools/observer';
 
 export default class Singin extends Component {
     constructor(props) {
@@ -47,7 +49,7 @@ export default class Singin extends Component {
         return (
             <Button variant="success" type="submit" >
                 Sign In
-                </Button>
+            </Button>
         )
     }
 
@@ -64,12 +66,26 @@ export default class Singin extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+
+        const newUser = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        requester
+            .post('user', '', 'basic', newUser)
+            .then(res => {
+                observer.trigger(observer.events.loginUser, res.username)
+                sessionStorage.setItem('authtoken', res._kmd.authtoken)
+            })
+        
     }
 
     render = () => (
         <div className='mx-5'>
             <h1>Sign In</h1>
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 <Form.Group>
                     <Form.Label>Username</Form.Label>
                     <Form.Control name='username' type="text" placeholder="Enter username" onChange={this.handleChanges} />
