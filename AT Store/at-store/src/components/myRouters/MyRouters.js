@@ -7,11 +7,14 @@ import LoginForm from '../loginForm/LoginForm';
 
 export default class MyRouters extends Component {
     render = () => (
-        <Switch>
-            <Route path='/home' exact component={Home} />
-            <Route path='/products' exact component={Products} />
-            <Route path='/about' exact component={About} />
-            <Route path='/login' exact component={LoginForm} />
-        </Switch>
+        <div className='p-4'>
+            <Switch>
+                <Route path='/home' exact component={Home} />
+                <Route path='/products' exact component={Products} />
+                <Route path='/about' exact component={About} />
+                <Route path='/login' exact component={LoginForm} />
+            </Switch>
+        </div>
+
     )
 }
