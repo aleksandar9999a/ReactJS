@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import requester from './../../tools/requester';
+import observer from './../../tools/observer';
 
 export default class Login extends Component {
     constructor(props) {
@@ -41,7 +42,10 @@ export default class Login extends Component {
         e.preventDefault();
         requester
             .post('user', 'login', 'basic', this.state)
-            .then(console.log)
+            .then(res => {
+                observer.trigger(observer.events.loginUser, res.username)
+                sessionStorage.setItem('authtoken', res._kmd.authtoken)
+            })
 
     }
 
