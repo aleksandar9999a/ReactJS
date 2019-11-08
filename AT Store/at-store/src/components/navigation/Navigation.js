@@ -12,7 +12,7 @@ export default class Navigation extends Component {
                 <Link to="/about" className="nav-link">About</Link>
             </Nav>
             <Nav>
-                <Link to="/login" className="btn btn-outline-success my-2 my-sm-0">Log In/Registretion</Link>
+                <Link to="/login" className="btn btn-outline-success my-2 my-sm-0">Log In/Sing In</Link>
             </Nav>
         </Navbar>
     )
