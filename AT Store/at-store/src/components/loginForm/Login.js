@@ -45,6 +45,7 @@ export default class Login extends Component {
             .then(res => {
                 observer.trigger(observer.events.loginUser, res.username)
                 sessionStorage.setItem('authtoken', res._kmd.authtoken)
+                window.location.reload()
             });
     }
 
