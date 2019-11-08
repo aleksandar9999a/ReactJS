@@ -15,7 +15,7 @@ export default class Login extends Component {
     validationInput = () => {
         const username = this.state.username;
         const password = this.state.password;
-
+        
         if (username !== '' && password !== '') {
             return (
                 <Button variant="success" type="submit" >
@@ -33,7 +33,7 @@ export default class Login extends Component {
 
     handleChanges = (e) => {
         let type = e.target.name;
-        let value = e.target.value
+        let value = e.target.value;
 
         this.setState({ [type]: value });
     }
@@ -45,20 +45,19 @@ export default class Login extends Component {
             .then(res => {
                 observer.trigger(observer.events.loginUser, res.username)
                 sessionStorage.setItem('authtoken', res._kmd.authtoken)
-            })
-
+            });
     }
 
     render = () => (
         <div className='mx-5'>
             <h1>Log In</h1>
             <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formBasicUsername">
+                <Form.Group>
                     <Form.Label>Username</Form.Label>
                     <Form.Control name='username' type="text" placeholder="Enter username" onChange={this.handleChanges} />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
+                <Form.Group>
                     <Form.Label>Password</Form.Label>
                     <Form.Control name='password' type="password" placeholder="Password" onChange={this.handleChanges} />
                 </Form.Group>
