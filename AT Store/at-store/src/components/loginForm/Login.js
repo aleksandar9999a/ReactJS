@@ -2,12 +2,32 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 export default class Login extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             email: '',
             password: '',
             checkbox: false
+        }
+    }
+
+    validationInput = () => {
+        const email = this.state.email;
+        const password = this.state.password;
+        const checkbox = this.state.checkbox;
+
+        if (email !== '' && password !== '' && checkbox === true) {
+            return (
+                <Button variant="primary" type="submit" >
+                    Log In
+                </Button>
+            )
+        } else {
+            return (
+                <Button variant="primary" type="submit" disabled>
+                    Log In
+                </Button>
+            )
         }
     }
 
@@ -19,13 +39,19 @@ export default class Login extends Component {
             value = e.target.checked;
         }
 
-        this.setState({[type]: value});
+        this.setState({ [type]: value });
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('pedal');
+
     }
 
     render = () => (
         <div className='mx-5'>
             <h1>Log In</h1>
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" onChange={this.handleChanges} />
@@ -39,9 +65,7 @@ export default class Login extends Component {
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" onChange={this.handleChanges} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Log In
-                </Button>
+                {this.validationInput()}
             </Form>
         </div>
     )
