@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CarouselIndicators from './CarouselIndicators';
 import CarouselImage from './CarouselImage';
 import CarouselButton from './CarouselButton';
-import requester from '../../tools/requester';
+//import requester from '../../tools/requester';
 
 
 export default class Carousel extends Component {

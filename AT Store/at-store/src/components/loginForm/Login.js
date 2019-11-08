@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 export default class Login extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            email: '',
+            password: ''
+        }
+    }
     render = () => (
-        <div>
+        <div className='mx-5'>
             <h1>Log In</h1>
             <Form>
                 <Form.Group controlId="formBasicEmail">

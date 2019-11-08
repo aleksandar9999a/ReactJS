@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 
 export default class Singin extends Component {
     render = () => (
-        <div>
+        <div className='mx-5'>
             <h1>Sign In</h1>
             <Form>
                 <Form.Group controlId="formBasicEmail">

@@ -4,7 +4,7 @@ import Singin from './Signin';
 
 export default class LoginForm extends Component {
     render = () => (
-        <div class="row">
+        <div class="row justify-content-center border p-5">
             <Login />
             <Singin />
         </div>
