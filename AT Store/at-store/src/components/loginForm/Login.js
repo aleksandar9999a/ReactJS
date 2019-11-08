@@ -18,13 +18,13 @@ export default class Login extends Component {
 
         if (email !== '' && password !== '' && checkbox === true) {
             return (
-                <Button variant="primary" type="submit" >
+                <Button variant="success" type="submit" >
                     Log In
                 </Button>
             )
         } else {
             return (
-                <Button variant="primary" type="submit" disabled>
+                <Button variant="success" type="submit" disabled>
                     Log In
                 </Button>
             )
