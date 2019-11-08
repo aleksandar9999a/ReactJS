@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import requester from './../../tools/requester';
 
 export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
-            checkbox: false
+            username: '',
+            password: ''
         }
     }
 
     validationInput = () => {
-        const email = this.state.email;
+        const username = this.state.username;
         const password = this.state.password;
-        const checkbox = this.state.checkbox;
 
-        if (email !== '' && password !== '' && checkbox === true) {
+        if (username !== '' && password !== '') {
             return (
                 <Button variant="success" type="submit" >
                     Log In
@@ -24,7 +23,7 @@ export default class Login extends Component {
             )
         } else {
             return (
-                <Button variant="success" type="submit" disabled>
+                <Button variant="success" type="submit">
                     Log In
                 </Button>
             )
@@ -32,19 +31,19 @@ export default class Login extends Component {
     }
 
     handleChanges = (e) => {
-        let type = e.target.type;
+        let type = e.target.name;
         let value = e.target.value
 
-        if (type === 'checkbox') {
-            value = e.target.checked;
-        }
-
         this.setState({ [type]: value });
+        console.log(this.state);
+        
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log('pedal');
+        requester
+            .post('user', 'login', 'basic', this.state)
+            .then(console.log)
 
     }
 
@@ -52,19 +51,16 @@ export default class Login extends Component {
         <div className='mx-5'>
             <h1>Log In</h1>
             <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" onChange={this.handleChanges} />
+                <Form.Group controlId="formBasicUsername">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control name='username' type="text" placeholder="Enter username" onChange={this.handleChanges} />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={this.handleChanges} />
+                    <Form.Control name='password' type="password" placeholder="Password" onChange={this.handleChanges} />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" onChange={this.handleChanges} />
-                </Form.Group>
                 {this.validationInput()}
             </Form>
         </div>
